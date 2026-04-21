@@ -1,0 +1,10 @@
+from app.services.rules import RULES
+
+def get_response(message: str) -> str:
+    message = message.lower()
+
+    for rule in RULES:
+        if rule["keyword"] in message:
+            return rule["response"]
+
+    return "Tôi chưa hiểu ý bạn 🤔"
